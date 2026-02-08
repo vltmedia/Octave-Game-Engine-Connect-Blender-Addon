@@ -1,8 +1,8 @@
 bl_info = {
     "name": "Octave Game Engine Connector",
-    "author": "Octave Engine",
+    "author": "Justin Jaro",
     "version": (1, 1, 0),
-    "blender": (3, 0, 0),
+    "blender": (4, 0, 0),
     "location": "Properties > Object > Octave Data, File > Export, 3D Viewport > Sidebar > OctaveEngine",
     "description": "Set Octave-specific metadata per object and export .gltf with extras",
     "category": "Import-Export",
