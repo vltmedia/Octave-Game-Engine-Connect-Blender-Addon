@@ -4,10 +4,11 @@ Bridge between Blender and the Octave Engine for scene export with per-object me
 
 ## Installation
 
-1. Open Blender (4.0+)
-2. Go to **Edit > Preferences > Add-ons > Install**
-3. Navigate to the downloaded `octave-gameengine-connect.zip` and install it.
-4. Enable **"Octave Game Engine Connector"** in the add-ons list if it isn't automatically.
+1. Download the zip file from the Releases area of this repo.
+2. Open Blender (4.0+)
+3. Go to **Edit > Preferences > Add-ons > Install**
+4. Navigate to the downloaded `octave-gameengine-connect.zip` and install it.
+5. Enable **"Octave Game Engine Connector"** in the add-ons list if it isn't automatically.
 
 ## Getting Started
 
@@ -15,7 +16,7 @@ Bridge between Blender and the Octave Engine for scene export with per-object me
 2. Select the **OctaveEngine** tab
 3. Set the **Project Dir** to the root of your Octave project (the folder containing `Assets/` and `Scripts/`)
 4. The addon automatically scans the project and shows a status line: `Assets: N | Scripts: N`
-![ScanProject](./docs/SetProjectCached.png)
+   ![ScanProject](./docs/SetProjectCached.png)
 
 That's it — you're ready to assign assets, scripts, and metadata to your objects and export.
 
@@ -38,7 +39,6 @@ Select any object and open **Properties > Object > Octave Data** to configure ho
 ![ObjectProps](./docs/ObjectProps.png)
 ![OctaveData_Set](./docs/OctaveData_Set.png)
 
-
 ### Mesh Type
 
 Dropdown controlling the node type created on import (meshes only):
@@ -51,14 +51,12 @@ Dropdown controlling the node type created on import (meshes only):
 
 ![OctaveData_SetMeshType](./docs/OctaveData_SetMeshType.png)
 
-
 ### Octave Asset
 
 Search field to link an existing project asset by its project-relative path (e.g. `Assets/Meshes/SM_Cube`). When set, the Editor resolves the asset by UUID first, then by name, falling back to the embedded glTF mesh.
 
 A magnifying-glass button next to the field auto-matches the asset based on the object name (see [Match Asset](#match-asset) below).
 ![OctaveData_SetAsset](./docs/OctaveData_SetAsset.png)
-
 
 ### Material Type
 
@@ -73,7 +71,6 @@ Dropdown for the material shading type on import. Only applies when no Octave As
 
 ![OctaveData_SetMaterialType](./docs/OctaveData_SetMaterialType.png)
 
-
 ### Script
 
 Search field to attach a Lua script to the node. Scripts are shown as project-relative paths (e.g. `Scripts/Player.lua`).
@@ -82,7 +79,6 @@ When a script with a `GatherProperties()` function is assigned, the addon parses
 
 Click the refresh icon next to "Script Properties" to re-parse the script after editing it on disk.
 ![OctaveData_SetScript](./docs/OctaveData_SetScript.png)
-
 
 ### Main Camera (cameras only)
 
@@ -93,18 +89,15 @@ Boolean toggle shown when a Camera object is selected. When enabled, the exporte
 
 The addon can automatically match Octave assets to Blender objects based on their names.
 
-
 ### Single Object
 
 In **Properties > Object > Octave Data**, click the magnifying-glass icon next to the **Octave Asset** field. The addon matches the active object's name against the asset catalog and fills in the field.
 ![MatchAssets](./docs/MatchAssets_B.png)
 
-
 ### Bulk Match
 
 In the **3D Viewport > Sidebar > OctaveEngine** tab, click **Match Assets** to auto-match all selected objects at once. Camera objects are skipped. A report shows how many objects were matched.
 ![MatchAssets](./docs/MatchAssets.png)
-
 
 ### Matching Algorithm
 
@@ -181,8 +174,8 @@ The Octave Editor reads these extras during **Import Scene** (when the "Apply gl
 ![Export](./docs/ImportScene.png)
 ![Export](./docs/ImportScene_B.png)
 
-
 ### Overview
+
 - Creates the appropriate node type (`Node3D`, `StaticMesh3D`, or `InstancedMesh3D`)
 - Links the referenced project asset (by UUID, then path, then name)
 - Applies the specified material type
@@ -193,6 +186,7 @@ The Octave Editor reads these extras during **Import Scene** (when the "Apply gl
 If no extras are present, nodes default to `StaticMesh3D` (matching pre-extras behavior).
 
 ### Reimport Scene
+
 You can Reimport or Refresh your scene with new layout, and textures.
 
 - Right Click the `Assets Panel` area, and select `Import Scene`
@@ -200,10 +194,8 @@ You can Reimport or Refresh your scene with new layout, and textures.
 - Set your import settings.
   - If you updated/changed textures on a mesh that doesn't exist in your project assets, toggle the `Textures Updated` checkbox.
 - Click `Import` to reimport your scene.
-![Export](./docs/ReimportScene.png)
-![Export](./docs/ReimportScene_B.png)
-
-
+  ![Export](./docs/ReimportScene.png)
+  ![Export](./docs/ReimportScene_B.png)
 
 ## Compatibility
 
